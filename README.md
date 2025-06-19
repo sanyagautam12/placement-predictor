@@ -1,8 +1,8 @@
-🎯 Placement Predictor
-A machine learning web application that predicts a student's placement chances based on academic, technical, and soft skills.
+## 🎯 Placement Predictor
+- A machine learning web application that predicts a student's placement chances based on academic, technical, and soft skills.
 
 Live Demo
-[Coming Soon – Deploying via Render/Netlify]
+- [Coming Soon – Deploying via Render/Netlify]
 
 ---
 
@@ -21,13 +21,16 @@ Live Demo
 - Option to load sample student profiles
 
 ---
-ML Model
+
+## ML Model
 
 - Algorithm: Random Forest Classifier
 - Trained on a synthetic dataset (or your own structured dataset)
 - Pickle file: `model/placement_model.pkl`
 
-Project Structure
+---
+
+## Project Structure
 placement-predictor/
 ├── app.py
 ├── train_model.py
@@ -44,16 +47,21 @@ placement-predictor/
 └── README.md
 
 ---
-Future Improvements
+
+## Future Improvements
 - Deploy the app online (Render/Netlify)
 - Add user authentication
 - Store predictions in a database
 - Add admin panel to track analytics
 
-Author
+--- 
+
+## Author
 - Sanya Gautam
 - GitHub: sanyagautam12
 - Portfolio: Coming Soon
 
-Show Your Support
+---
+
+## Show Your Support
 - If you like this project, please star ⭐ the repo and share it with your friends!

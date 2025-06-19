@@ -87,7 +87,6 @@ Add admin panel to track stats
  Author
 Sanya Gautam
 GitHub: sanyagautam12
-gautamsanya27@gmal.com
 [Portfolio Coming Soon]
 
 Show Your Support

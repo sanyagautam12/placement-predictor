@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Placement Predictor 🎯</h1>
+
+        <div class="row">
+            <!-- FORM SECTION -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Information</h5>
+                        <form id="predictionForm" method="POST" action="/predict">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control" id="age" name="age" min="17" max="30" required>
+                                </div>
+                                <div class="col">
+                                    <label for="gender" class="form-label">Gender</label>
+                                    <select class="form-control" id="gender" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="department" class="form-label">Department</label>
+                                    <select class="form-control" id="department" name="department" required>
+                                        <option value="">Select Department</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Information Technology">Information Technology</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Mechanical">Mechanical</option>
+                                        <option value="Electrical">Electrical Engineering</option>
+                                        <option value="Civil">Civil Engineering</option>
+                                        <option value="Chemical">Chemical Engineering</option>
+                                        <option value="Biotechnology">Biotechnology</option>
+                                        <option value="Aerospace">Aerospace Engineering</option>
+                                        <option value="Data Science">Data Science</option>
+                                        <option value="AI & ML">Artificial Intelligence & ML</option>
+                                        <option value="IoT">Internet of Things</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="cgpa" class="form-label">CGPA</label>
+                                    <input type="number" class="form-control" id="cgpa" name="cgpa" step="0.01" min="0" max="10" required>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="projects" class="form-label">Projects</label>
+                                    <input type="number" class="form-control" id="projects" name="projects" min="0" required>
+                                </div>
+                                <div class="col">
+                                    <label for="internships" class="form-label">Internships</label>
+                                    <input type="number" class="form-control" id="internships" name="internships" min="0" required>
+                                </div>
+                            </div>
+
+                            <!-- Technical Skills -->
+                            <div class="mb-3">
+                                <label class="form-label">Technical Skills</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="python" name="python" value="1">
+                                            <label class="form-check-label" for="python">Python</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="java" name="java" value="1">
+                                            <label class="form-check-label" for="java">Java</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="cpp" name="cpp" value="1">
+                                            <label class="form-check-label" for="cpp">C++</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="dsa" name="dsa" value="1">
+                                            <label class="form-check-label" for="dsa">DSA</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="webdev" name="webdev" value="1">
+                                            <label class="form-check-label" for="webdev">Web Development</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="ml" name="ml" value="1">
+                                            <label class="form-check-label" for="ml">Machine Learning</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="cloud" name="cloud" value="1">
+                                            <label class="form-check-label" for="cloud">Cloud Computing</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="devops" name="devops" value="1">
+                                            <label class="form-check-label" for="devops">DevOps</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="cybersecurity" name="cybersecurity" value="1">
+                                            <label class="form-check-label" for="cybersecurity">Cybersecurity</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="database" name="database" value="1">
+                                            <label class="form-check-label" for="database">Database Management</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="mobile" name="mobile" value="1">
+                                            <label class="form-check-label" for="mobile">Mobile Development</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="blockchain" name="blockchain" value="1">
+                                            <label class="form-check-label" for="blockchain">Blockchain</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Extras -->
+                            <div class="mb-3">
+                                <label for="certifications" class="form-label">Certifications</label>
+                                <input type="number" class="form-control" id="certifications" name="certifications" min="0" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="communication_skill" class="form-label">Communication Skills (1-10)</label>
+                                <input type="range" class="form-range" id="communication_skill" name="communication" min="1" max="10">
+                                <div class="text-center" id="communication_value">5</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="problem_solving_skill" class="form-label">Problem Solving Skills (1-10)</label>
+                                <input type="range" class="form-range" id="problem_solving_skill" name="problem_solving" min="1" max="10">
+                                <div class="text-center" id="problem_solving_value">5</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="extracurriculars" class="form-label">Extracurricular Activities (1-10)</label>
+                                <input type="range" class="form-range" id="extracurriculars" name="extracurriculars" min="1" max="10">
+                                <div class="text-center" id="extracurriculars_value">5</div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Predict Placement</button>
+                                <button type="button" class="btn btn-secondary" id="sampleDataBtn">Load Random Sample</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESULT SECTION -->
+            <div class="col-md-6">
+                <div id="resultSection" style="display: none;">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Prediction Result</h5>
+                            <div id="predictionResult" class="alert" role="alert"></div>
+                            <div class="progress mb-3">
+                                <div id="probabilityBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Feature Input Overview</h5>
+                            <img id="featurePlot" class="img-fluid" src="" alt="Feature Importance">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Suggestions for Improvement</h5>
+                            <ul id="suggestions" class="list-group list-group-flush"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
